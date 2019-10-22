@@ -20,3 +20,25 @@ let printPascals = levels => {
 
 let result = printPascals(9)
 console.log(result)
+
+// print the kth level of pascals triangle
+
+let kthPascals = k => {
+  let prevRow = [1]
+  let level
+  for (let j = 0; j <= k; j++) {
+    level = []
+    for (let i = 0; i <= j; i++) {
+      if (i === 0 || i === j) {
+        level.push(1)
+      } else {
+        level.push(prevRow[i - 1] + prevRow[i])
+      }
+    }
+    prevRow = level
+  }
+  return level
+}
+
+let kthresult = kthPascals(9)
+console.log(kthresult)
